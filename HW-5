@@ -1,0 +1,108 @@
+import UIKit
+//Task 1 & Task 2:
+class Artist {
+    var name: String
+    var country: String
+    var genre: String
+    var track: String
+    init(name: String, country: String, genre: String, track: String) {
+        self.name = name
+        self.country = country
+        self.genre = genre
+        self.track = track
+    }
+    func writeATrack() {
+        print("Я \(name) написал трек \(track)")
+    }
+    func playTheTrack() {
+        print("Я \(name) исполнил трек \(track)")
+    }
+}
+
+final class Oxxxymiron: Artist {
+    var education: String
+    init(education: String, name: String, country: String, genre: String, track: String) {
+        self.education = education
+        super.init(name: name, country: country, genre: genre, track: track)
+    }
+    func getSlapped() {
+        print("В 2010 году получил леща от Ромы Жигана и 10 лет молчал об этом.")
+    }
+    override func writeATrack() {
+        super.writeATrack()
+        print("и написал сценарий на клип к данному треку.")
+    }
+    override func playTheTrack() {
+        super.playTheTrack()
+        print("и снял клип на данный трек.")
+    }
+}
+
+let oxy = Oxxxymiron(education: "Закончил Оксфорд", name: "Оксимирон", country: "Россия", genre: "rap", track: "Кто убил Марка?")
+oxy.writeATrack()
+oxy.playTheTrack()
+oxy.getSlapped()
+
+print("-----------------")
+
+final class Guf: Artist {
+    var life: String
+    init(life: String, name: String, country: String, genre: String, track: String) {
+        self.life = life
+        super.init(name: name, country: country, genre: genre, track: track)
+    }
+    func lifeInChina() {
+        print("Какое-то время прожил в Китае.")
+    }
+    override func writeATrack() {
+        super.writeATrack()
+        print("и в прошлом у меня записан альбом с Бастой")
+    }
+    override func playTheTrack() {
+        super.playTheTrack()
+        print("Так же были гастроли совместно с Васей Вакуленко")
+    }
+}
+let guf = Guf(life: "Китай", name: "Гуф", country: "Россия", genre: "rap", track: "Маугли 2")
+guf.writeATrack()
+guf.playTheTrack()
+guf.lifeInChina()
+print("--------------")
+
+final class TillLindemann: Artist {
+    var education: String
+    init(education: String, name: String, country: String, genre: String, track: String){
+        self.education = education
+        super.init(name: name, country: country, genre: genre, track: track)
+    }
+    func someEducation() {
+        print("Имею \(education).")
+    }
+    override func writeATrack() {
+        super.writeATrack()
+        print("и на моих концертах пиротехническое шоу ставится мной.")
+    }
+    override func playTheTrack() {
+        super.playTheTrack()
+        print("Клип на песню Till the End снимался в России в Санкт-Петербурге.")
+    }
+}
+let till = TillLindemann(education: "образование пиротехника", name: "Тиль Линдеманн", country: "Германия", genre: "industrial-metall", track: "Auslander")
+till.writeATrack()
+till.playTheTrack()
+till.someEducation()
+
+//Task 3:
+var artistArray: [Artist] = []
+func addArtistToArray(artist: Artist) -> [Artist] {
+    artistArray.append(artist)
+    return artistArray
+}
+addArtistToArray(artist: till)
+addArtistToArray(artist: guf)
+addArtistToArray(artist: oxy)
+print(artistArray)
+/*
+ Выполняя домашнее задание разобрался с переопределением методов, понял как данные классового типа, которые наследуются от супер класса вызываются в самой функции и какого типа должен быть сам массив в данном случае.
+ Оценка понимания темы на 4, надо доразобрать вопрос с переопределнием инициализаторов.
+ */
